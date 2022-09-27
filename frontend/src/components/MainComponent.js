@@ -56,27 +56,25 @@ export default function MainComponent({}) {
     setIsLoading(false);
   };
 
-  const PickerInput = forwardRef(
-    ({ value, onClick, isOpen, setIsOpen }, ref) => (
-      <div
-        className={`custom-input p-2.5 border-2 ${
-          isOpen ? "border-sky-500" : "border-slate-300"
-        } rounded-lg `}
+  const PickerInput = forwardRef(({ value, onClick }, ref) => (
+    <div
+      className={`custom-input p-2.5 border-2 ${
+        isOpen ? "border-sky-500" : "border-slate-300"
+      } rounded-lg `}
+    >
+      <button
+        onClick={() => {
+          onClick();
+          // if (isOpen === null) setIsOpen(false);
+          // else
+          // setIsOpen(!isOpen);
+        }}
+        ref={ref}
       >
-        <button
-          onClick={() => {
-            onClick();
-            // if (isOpen === null) setIsOpen(false);
-            // else
-            // setIsOpen(!isOpen);
-          }}
-          ref={ref}
-        >
-          {value}
-        </button>
-      </div>
-    )
-  );
+        {value}
+      </button>
+    </div>
+  ));
   console.log("component?", isOpen);
 
   const handlePickerClick = () => {
@@ -97,7 +95,7 @@ export default function MainComponent({}) {
               setData({ ...data, date: newDate });
               setIsOpen(false);
             }}
-            customInput={<PickerInput isOpen={isOpen} setIsOpen={setIsOpen} />}
+            customInput={<PickerInput />}
             onClickOutside={() => {
               console.log("outside click");
               setIsOpen(null);
