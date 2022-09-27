@@ -23,6 +23,26 @@ module.exports = {
         exclude: /node_modules/,
         loader: require.resolve("babel-loader"),
       },
+      {
+        test: /\.css$/i,
+        exclude: [/node_modules/],
+        include: path.resolve(__dirname, "src"),
+        use: ["style-loader", "css-loader", "postcss-loader"],
+      },
+      {
+        test: /\.(css)$/i,
+        include: /node_modules/,
+        exclude: /src/,
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        use: [
+          {
+            loader: "file-loader",
+          },
+        ],
+      },
     ],
   },
 };

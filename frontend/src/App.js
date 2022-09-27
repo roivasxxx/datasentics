@@ -1,9 +1,7 @@
 import React from "react";
+import "./main.css";
+import MainComponent from "./components/MainComponent";
 
-const App = () => (
-  <div>
-    <h1>Hello React</h1>
-  </div>
-);
+const App = () => <MainComponent />;
 
 export default App;
