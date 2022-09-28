@@ -1,4 +1,4 @@
-# React 17.0.2 template
+# Datasentics - sunrise/sunset
 
 ## Webpack, Babel
 
